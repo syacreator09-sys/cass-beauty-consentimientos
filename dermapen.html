@@ -982,7 +982,7 @@ async function confirmar() {
       const fd = new FormData();
       fd.append('file', blob, archivo+'.pdf');
       fd.append('upload_preset', 'cass_beauty_consent');
-      fd.append('folder', `cass-beauty/consentimientos/dermapen/${mes}`);
+      fd.append('folder', `cass/consentimientos/dermapen/${mes}`);
       fd.append('resource_type', 'raw');
       fd.append('public_id', archivo);
 
@@ -1007,7 +1007,7 @@ async function confirmar() {
         const ffd = new FormData();
         ffd.append('file', fBlob, `${archivo}-${label}.jpg`);
         ffd.append('upload_preset', 'cass_beauty_consent');
-        ffd.append('folder', `cass-beauty/pacientes/${archivo}/dermapen`);
+        ffd.append('folder', `cass/pacientes/${archivo}/dermapen`);
         ffd.append('public_id', `${archivo}-${label}`);
         await fetch('https://api.cloudinary.com/v1_1/dxohyqmji/image/upload', {method:'POST',body:ffd});
       } catch(e) { /* foto upload fail silently */ }
