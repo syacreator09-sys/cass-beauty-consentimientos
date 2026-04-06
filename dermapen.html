@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Consentimiento Dermapen — Cass Beauty</title>
+  <style>
+    :root {
+      color-scheme: light only;
+      --cafe:        #b07340;
+      --cafe-dark:   #8a5526;
+      --cafe-mid:    #d4a070;
+      --cafe-light:  #fdf5ee;
+      --cafe-ultra:  #fffaf5;
+      --verde:       #3a8c5c;
+      --verde-light: #edf7f2;
+      --gris-txt:    #6b6b6b;
+      --gris-borde:  #e8e8e8;
+      --negro:       #1c1c1e;
+      --blanco:      #ffffff;
+      --fondo:       #f8f5f2;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box; margin: 0; padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html { background: var(--fondo) !important; color: var(--negro) !important; }
+
+    body {
+      font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 17px; line-height: 1.6;
+      color: var(--negro); background: var(--fondo);
+      min-height: 100vh;
+      -webkit-text-size-adjust: 100%;
+      touch-action: manipulation;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(145deg, #c08840 0%, #9a6628 50%, #7a4e18 100%);
+      padding: 40px 24px 36px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content:''; position:absolute; top:-40px; right:-40px;
+      width:180px; height:180px;
+      background:rgba(255,255,255,0.06); border-radius:50%;
+    }
+    .hero::after {
+      content:''; position:absolute; bottom:-60px; left:-30px;
+      width:220px; height:220px;
+      background:rgba(255,255,255,0.04); border-radius:50%;
+    }
+    .logo-cass { margin-bottom: 8px; display: block; }
+    .hero-badge {
+      display:inline-block;
+      background:rgba(255,255,255,0.18); color:rgba(255,255,255,0.9);
+      font-size:11px; letter-spacing:3px; text-transform:uppercase;
+      padding:5px 14px; border-radius:100px; margin-bottom:14px;
+      font-weight:500; border:1px solid rgba(255,255,255,0.2);
+    }
+    .hero h1 { color:white; font-size:28px; font-weight:700; margin-bottom:8px; letter-spacing:-0.5px; }
+    .hero-sub { color:rgba(255,255,255,0.78); font-size:15px; }
+
+    /* CONTAINER */
+    .wrap { max-width:760px; margin:0 auto; padding:24px 16px 60px; }
+
+    /* CARD */
+    .card {
+      background:var(--blanco); border-radius:16px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.07);
+      border:1px solid var(--gris-borde);
+      padding:24px 20px; margin-bottom:16px;
+    }
+    .card-title {
+      display:flex; align-items:center; gap:10px;
+      font-size:13px; font-weight:700; text-transform:uppercase;
+      letter-spacing:1.5px; color:var(--cafe-dark);
+      margin-bottom:20px; padding-bottom:12px;
+      border-bottom:1.5px solid var(--cafe-light);
+    }
+    .card-title-icon {
+      width:28px; height:28px; background:var(--cafe-light);
+      border-radius:8px; display:flex; align-items:center;
+      justify-content:center; font-size:14px;
+    }
+
+    /* FIELDS */
+    .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px; }
+    .grid-1 { margin-bottom:14px; }
+    .field label {
+      display:block; font-size:12px; font-weight:600;
+      text-transform:uppercase; letter-spacing:0.8px;
+      color:var(--gris-txt); margin-bottom:7px;
+    }
+    .field input, .field select {
+      width:100%; padding:14px 16px;
+      border:2px solid var(--gris-borde); border-radius:10px;
+      font-size:17px; font-family:inherit; color:var(--negro);
+      background:var(--blanco); transition:border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance:none; appearance:none; outline:none;
+    }
+    .field input:focus, .field select:focus {
+      border-color:var(--cafe); box-shadow:0 0 0 4px rgba(176,115,64,0.12);
+    }
+    .field input::placeholder { color:#bbb; }
+
+    /* PILLS */
+    .pills { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+    .pill {
+      padding:10px 18px; border:2px solid var(--gris-borde);
+      border-radius:100px; font-size:15px; cursor:pointer;
+      transition:all 0.18s; background:var(--blanco); color:var(--negro);
+      user-select:none; min-height:44px; display:flex;
+      align-items:center; font-weight:500;
+    }
+    .pill.on {
+      background:var(--cafe); border-color:var(--cafe); color:white;
+      font-weight:600; box-shadow:0 3px 12px rgba(176,115,64,0.35);
+    }
+    .pill.single.on {
+      background:var(--cafe-dark); border-color:var(--cafe-dark);
+    }
+
+    /* INFO MÉDICA */
+    .info-block { font-size:15px; color:#444; line-height:1.75; }
+    .info-block h4 {
+      font-size:15px; font-weight:700; color:var(--negro);
+      margin:18px 0 8px; display:flex; align-items:center; gap:6px;
+    }
+    .info-block h4:first-child { margin-top:0; }
+    .info-block ul { margin:0 0 10px 0; padding-left:0; list-style:none; }
+    .info-block ul li { padding:4px 0 4px 22px; position:relative; }
+    .info-block ul li::before { content:'›'; position:absolute; left:6px; color:var(--cafe); font-weight:700; }
+    .notice {
+      background:#fffbeb; border:1.5px solid #f0d060;
+      border-radius:10px; padding:12px 16px;
+      font-size:14px; color:#7a5c00; margin-top:14px;
+    }
+
+    /* CHECKBOXES */
+    .checks { display:flex; flex-direction:column; gap:10px; }
+    .check-row {
+      display:flex; align-items:flex-start; gap:14px;
+      padding:14px 16px; background:#fafafa;
+      border-radius:10px; border:2px solid var(--gris-borde);
+      cursor:pointer; transition:all 0.18s; user-select:none;
+    }
+    .check-row:active { background:var(--cafe-light); }
+    .check-row.on { background:var(--verde-light); border-color:var(--verde); }
+    .check-box {
+      width:26px; height:26px; min-width:26px; border-radius:7px;
+      border:2px solid var(--gris-borde); background:white;
+      display:flex; align-items:center; justify-content:center;
+      font-size:15px; color:white; transition:all 0.18s; margin-top:1px;
+    }
+    .check-row.on .check-box { background:var(--verde); border-color:var(--verde); }
+    .check-text { font-size:16px; line-height:1.5; flex:1; color:var(--negro); }
+
+    /* FIRMA */
+    .firma-area {
+      border:2.5px dashed var(--gris-borde); border-radius:16px;
+      background:#fafafa; position:relative; overflow:hidden;
+      transition:border-color 0.2s, background 0.2s; margin-bottom:10px;
+    }
+    .firma-area.activo { border-style:solid; border-color:var(--cafe); background:#fff; }
+    .firma-hint {
+      position:absolute; top:50%; left:50%;
+      transform:translate(-50%,-50%); text-align:center;
+      color:#ccc; font-size:15px; pointer-events:none;
+      transition:opacity 0.2s; white-space:nowrap;
+    }
+    .firma-hint.oculto { opacity:0; }
+    .firma-hint-icon { font-size:32px; display:block; margin-bottom:6px; }
+    #canvas-firma {
+      display:block; width:100%; height:180px;
+      cursor:crosshair; touch-action:none;
+    }
+    .firma-linea {
+      position:absolute; bottom:46px; left:5%; right:5%;
+      height:1px; background:var(--gris-borde); pointer-events:none;
+    }
+    .firma-label-abajo {
+      position:absolute; bottom:14px; left:50%; transform:translateX(-50%);
+      font-size:11px; color:#bbb; text-transform:uppercase;
+      letter-spacing:1px; pointer-events:none;
+    }
+    .btn-limpiar {
+      background:none; border:1.5px solid var(--gris-borde); border-radius:8px;
+      padding:8px 18px; font-size:13px; color:var(--gris-txt);
+      cursor:pointer; display:block; margin:0 auto 4px; font-family:inherit;
+    }
+    .btn-limpiar:hover { background:#f5f5f5; }
+
+    /* BOTÓN PRINCIPAL */
+    .btn-main {
+      display:block; width:100%; padding:22px;
+      background:linear-gradient(135deg,#3a8c5c 0%,#2a6a44 100%);
+      color:white; border:none; border-radius:16px;
+      font-size:20px; font-weight:700; cursor:pointer; margin-top:24px;
+      transition:transform 0.15s, box-shadow 0.15s;
+      box-shadow:0 6px 24px rgba(58,140,92,0.38);
+      font-family:inherit; letter-spacing:0.3px;
+    }
+    .btn-main:active { transform:scale(0.98); box-shadow:0 3px 12px rgba(58,140,92,0.28); }
+
+    /* MODAL */
+    .overlay {
+      display:none; position:fixed; inset:0;
+      background:rgba(0,0,0,0.45);
+      backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px);
+      z-index:100; align-items:center; justify-content:center; padding:20px;
+    }
+    .overlay.show { display:flex; }
+    .modal {
+      background:white; border-radius:24px; padding:32px 24px 28px;
+      max-width:400px; width:100%; text-align:center;
+      box-shadow:0 24px 64px rgba(0,0,0,0.22);
+    }
+    .modal-emoji { font-size:52px; margin-bottom:14px; display:block; }
+    .modal h3 { font-size:22px; font-weight:700; margin-bottom:10px; color:var(--negro); }
+    .modal p { font-size:15px; color:var(--gris-txt); line-height:1.6; margin-bottom:24px; }
+    .modal-btns { display:flex; gap:10px; }
+    .modal-btn {
+      flex:1; padding:16px; border-radius:12px; font-size:17px;
+      font-weight:600; border:none; cursor:pointer; font-family:inherit; transition:opacity 0.15s;
+    }
+    .modal-btn:active { opacity:0.8; }
+    .modal-btn.sec { background:#f2f2f2; color:var(--negro); }
+    .modal-btn.pri { background:var(--verde); color:white; }
+
+    /* LOADING */
+    .loading {
+      display:none; position:fixed; inset:0;
+      background:rgba(255,255,255,0.92);
+      backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+      z-index:200; flex-direction:column;
+      align-items:center; justify-content:center; gap:18px;
+    }
+    .loading.show { display:flex; }
+    .spin {
+      width:52px; height:52px; border:4px solid var(--cafe-light);
+      border-top-color:var(--cafe); border-radius:50%;
+      animation:giro 0.75s linear infinite;
+    }
+    @keyframes giro { to { transform:rotate(360deg); } }
+    .loading-txt { font-size:17px; color:var(--gris-txt); font-weight:500; }
+
+    /* ÉXITO */
+    .success { display:none; min-height:100vh; background:var(--fondo); }
+    .success.show { display:block; }
+    .success-hero {
+      background:linear-gradient(145deg,var(--verde) 0%,#226040 100%);
+      padding:60px 24px 50px; text-align:center;
+    }
+    .success-emoji { font-size:72px; display:block; margin-bottom:16px; }
+    .success-hero h2 { color:white; font-size:28px; font-weight:700; margin-bottom:8px; }
+    .success-hero p { color:rgba(255,255,255,0.8); font-size:16px; }
+    .success-card { max-width:500px; margin:24px auto; padding:0 16px; }
+    .success-info {
+      background:white; border-radius:16px; padding:24px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.07);
+      border:1px solid var(--gris-borde); margin-bottom:16px;
+    }
+    .success-info .etiqueta {
+      font-size:11px; text-transform:uppercase; letter-spacing:1.5px;
+      color:var(--gris-txt); font-weight:600; margin-bottom:4px;
+    }
+    .success-info .valor { font-size:20px; font-weight:700; color:var(--negro); margin-bottom:16px; }
+    .folio-badge {
+      display:inline-block; background:var(--cafe-light); color:var(--cafe-dark);
+      font-size:14px; font-weight:600; padding:6px 14px; border-radius:8px;
+      font-family:'SF Mono','Courier New',monospace;
+    }
+    .doc-link {
+      background:var(--cafe-ultra); border:1.5px solid var(--cafe-mid);
+      border-radius:10px; padding:12px 16px; font-size:13px;
+      color:var(--cafe-dark); word-break:break-all; margin-top:8px;
+    }
+    .btn-nuevo {
+      display:block; width:100%; padding:18px; background:var(--cafe);
+      color:white; border:none; border-radius:16px; font-size:18px;
+      font-weight:700; cursor:pointer; font-family:inherit;
+      box-shadow:0 6px 20px rgba(176,115,64,0.35); margin-bottom:40px;
+    }
+
+    /* FOTOS */
+    .foto-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .foto-slot {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .foto-etiqueta {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--gris-txt);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .opc-tag {
+      font-size: 9px;
+      background: #f0f0f0;
+      color: #888;
+      padding: 2px 6px;
+      border-radius: 100px;
+      font-weight: 500;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+    .foto-preview {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: #f9f9f9;
+      border: 1.5px dashed #ddd;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .foto-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .foto-placeholder-icon { font-size: 28px; opacity: 0.5; }
+    .foto-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: var(--cafe-light);
+      color: var(--cafe-dark);
+      border: 1.5px solid var(--cafe-mid);
+      border-radius: 10px;
+      padding: 10px 0;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    .foto-btn.opc {
+      background: #f5f5f5;
+      color: #888;
+      border-color: #e0e0e0;
+    }
+    .foto-del {
+      display: none;
+      width: 100%;
+      background: none;
+      border: none;
+      color: #cc4444;
+      font-size: 12px;
+      cursor: pointer;
+      padding: 2px 0;
+    }
+
+    @media (max-width:560px) {
+      .grid-2 { grid-template-columns:1fr; }
+      .hero h1 { font-size:24px; }
+      .btn-main { font-size:18px; }
+    }
+  </style>
+</head>
+<body>
+
+
+<!-- ════════ FORMULARIO ════════ -->
+<div id="form-wrap">
+
+  <div class="hero">
+    <div class="logo-cass">
+      <svg width="140" height="52" viewBox="0 0 140 52" xmlns="http://www.w3.org/2000/svg">
+        <text x="70" y="24" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="22" font-weight="700" letter-spacing="6" fill="white">CASS</text>
+        <line x1="20" y1="30" x2="120" y2="30" stroke="rgba(255,255,255,0.4)" stroke-width="0.5"/>
+        <text x="70" y="42" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" font-weight="300" letter-spacing="7" fill="rgba(255,255,255,0.85)">BEAUTY</text>
+      </svg>
+    </div>
+    <div class="hero-badge">Cass Beauty · Clínica Estética</div>
+    <h1>Consentimiento Informado</h1>
+    <p class="hero-sub">Dermapen · Microagujamiento (Microneedling)</p>
+  </div>
+
+  <div class="wrap">
+
+    <!-- 1. DATOS DEL PACIENTE -->
+    <div class="card">
+      <div class="card-title">
+        <div class="card-title-icon">👤</div>
+        Datos del Paciente
+      </div>
+      <div class="grid-2">
+        <div class="field">
+          <label>Nombre completo *</label>
+          <input type="text" id="nombre" placeholder="Nombre y apellidos">
+        </div>
+        <div class="field">
+          <label>Fecha de nacimiento *</label>
+          <input type="date" id="fecha-nac">
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="field">
+          <label>Terapeuta aplicador</label>
+          <input type="text" id="terapeuta" placeholder="Nombre del terapeuta">
+        </div>
+        <div class="field">
+          <label>Fecha del procedimiento</label>
+          <input type="date" id="fecha-proc">
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. PROCEDIMIENTO -->
+    <div class="card">
+      <div class="card-title">
+        <div class="card-title-icon">🪡</div>
+        Datos del Procedimiento
+      </div>
+
+      <div class="field grid-1">
+        <label>Zona(s) de tratamiento *</label>
+        <div class="pills" id="zonas">
+          <span class="pill" data-v="Rostro completo">Rostro completo</span>
+          <span class="pill" data-v="Frente">Frente</span>
+          <span class="pill" data-v="Mejillas">Mejillas</span>
+          <span class="pill" data-v="Cuello">Cuello</span>
+          <span class="pill" data-v="Escote">Escote</span>
+          <span class="pill" data-v="Contorno de ojos">Contorno de ojos</span>
+          <span class="pill" data-v="Zona perioral">Zona perioral</span>
+          <span class="pill" data-v="Nariz">Nariz</span>
+        </div>
+      </div>
+
+      <div class="field grid-1" style="margin-top:16px">
+        <label>Profundidad de agujas *</label>
+        <div class="pills" id="prof">
+          <span class="pill single" data-v="0.5mm">0.5 mm</span>
+          <span class="pill single" data-v="1.0mm">1.0 mm</span>
+          <span class="pill single" data-v="1.5mm">1.5 mm</span>
+          <span class="pill single" data-v="2.0mm">2.0 mm</span>
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-top:16px">
+        <div class="field">
+          <label>Número de sesión</label>
+          <input type="text" id="sesion" placeholder="Ej: 1ª de 6">
+        </div>
+        <div class="field">
+          <label>Sérum / Activo aplicado</label>
+          <input type="text" id="serum" placeholder="Ej: Vitamina C">
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. INFORMACIÓN MÉDICA -->
+    <div class="card">
+      <div class="card-title">
+        <div class="card-title-icon">📋</div>
+        Información del Procedimiento
+      </div>
+      <div class="info-block">
+        <h4>¿Qué es el Dermapen / Microneedling?</h4>
+        <p>El Dermapen utiliza microagujas de alta precisión para crear microcanales controlados en la piel, activando la producción natural de colágeno y elastina. Es mínimamente invasivo y eficaz para mejorar textura, tono y firmeza.</p>
+
+        <h4>📅 Sesiones recomendadas</h4>
+        <p>Se recomiendan <strong>4 a 6 sesiones</strong> con intervalos de 3–4 semanas. Los resultados son progresivos y se aprecian mejor a partir de la 3ª sesión.</p>
+
+        <h4>⚠️ Posibles efectos adversos</h4>
+        <ul>
+          <li>Enrojecimiento e inflamación (normal, dura 24–72 h)</li>
+          <li>Sensibilidad cutánea elevada al sol los primeros días</li>
+          <li>Descamación leve entre el 3er y 5to día (renovación normal)</li>
+          <li>Hiperpigmentación post-inflamatoria sin protección solar adecuada</li>
+          <li>Posible reactivación de herpes labial en pacientes con historial</li>
+        </ul>
+
+        <h4>✅ Cuidados post-tratamiento</h4>
+        <ul>
+          <li>No maquillaje las primeras <strong>24 horas</strong></li>
+          <li>Protector solar SPF 50+ desde el día siguiente por <strong>30 días</strong></li>
+          <li>Evitar sol directo <strong>48 horas</strong></li>
+          <li>No exfoliantes ni retinoides <strong>5 días</strong></li>
+          <li>Hidratación intensa con ácido hialurónico</li>
+          <li>Sin sauna, vapor ni piscina <strong>48 horas</strong></li>
+        </ul>
+
+        <div class="notice">
+          ⚠️ La piel debe estar limpia y sin activos cosméticos el día del procedimiento. Informar al terapeuta sobre cualquier medicamento en uso.
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. CONTRAINDICACIONES -->
+    <div class="card">
+      <div class="card-title">
+        <div class="card-title-icon">✓</div>
+        Declaración de Contraindicaciones
+      </div>
+      <p style="font-size:15px; color:#666; margin-bottom:16px;">
+        Toca cada casilla para confirmar que <strong>NO presentas</strong> las siguientes condiciones:
+      </p>
+      <div class="checks" id="checks">
+        <div class="check-row" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-text">No estoy embarazada ni en período de lactancia</div>
+        </div>
+        <div class="check-row" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-text">No presento rosácea activa ni dermatitis en la zona a tratar</div>
+        </div>
+        <div class="check-row" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-text">No he usado isotretinoína (Roacutane) en los últimos 6 meses</div>
+        </div>
+        <div class="check-row" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-text">No tengo herpes activo (si tengo historial, lo he comunicado al terapeuta)</div>
+        </div>
+        <div class="check-row" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-text">No tengo tendencia a formar queloides ni cicatrices hipertróficas</div>
+        </div>
+        <div class="check-row" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-text">No tomo anticoagulantes ni padezco trastornos de coagulación</div>
+        </div>
+        <div class="check-row" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-text">No padezco diabetes descontrolada ni estoy en quimioterapia activa</div>
+        </div>
+        <div class="check-row" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-text">He leído y comprendo este consentimiento. Mis preguntas han sido respondidas satisfactoriamente</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOTOS -->
+    <div class="card">
+      <div class="card-title">
+        <div class="card-title-icon">📷</div>
+        Registro Fotográfico
+      </div>
+      <p style="font-size:15px; color:#666; margin-bottom:20px;">
+        Agrega <strong>fotos del área a tratar</strong> para el expediente del paciente. Las fotos <em>Después</em> son opcionales.
+      </p>
+      <div class="foto-grid">
+        <div class="foto-slot" id="slot-a1">
+          <div class="foto-etiqueta">Antes 1</div>
+          <div class="foto-preview" id="prev-a1">
+            <span class="foto-placeholder-icon">📷</span>
+          </div>
+          <label class="foto-btn" for="inp-a1">Tomar / Cargar</label>
+          <input id="inp-a1" type="file" accept="image/*" capture="environment" onchange="cargarFoto(this,'a1')" style="display:none">
+          <button class="foto-del" id="del-a1" onclick="borrarFoto('a1')">✕ Quitar</button>
+        </div>
+        <div class="foto-slot" id="slot-a2">
+          <div class="foto-etiqueta">Antes 2</div>
+          <div class="foto-preview" id="prev-a2">
+            <span class="foto-placeholder-icon">📷</span>
+          </div>
+          <label class="foto-btn" for="inp-a2">Tomar / Cargar</label>
+          <input id="inp-a2" type="file" accept="image/*" capture="environment" onchange="cargarFoto(this,'a2')" style="display:none">
+          <button class="foto-del" id="del-a2" onclick="borrarFoto('a2')">✕ Quitar</button>
+        </div>
+        <div class="foto-slot" id="slot-d1">
+          <div class="foto-etiqueta">Después 1 <span class="opc-tag">Opcional</span></div>
+          <div class="foto-preview" id="prev-d1">
+            <span class="foto-placeholder-icon" style="opacity:0.4">📷</span>
+          </div>
+          <label class="foto-btn opc" for="inp-d1">Tomar / Cargar</label>
+          <input id="inp-d1" type="file" accept="image/*" capture="environment" onchange="cargarFoto(this,'d1')" style="display:none">
+          <button class="foto-del" id="del-d1" onclick="borrarFoto('d1')">✕ Quitar</button>
+        </div>
+        <div class="foto-slot" id="slot-d2">
+          <div class="foto-etiqueta">Después 2 <span class="opc-tag">Opcional</span></div>
+          <div class="foto-preview" id="prev-d2">
+            <span class="foto-placeholder-icon" style="opacity:0.4">📷</span>
+          </div>
+          <label class="foto-btn opc" for="inp-d2">Tomar / Cargar</label>
+          <input id="inp-d2" type="file" accept="image/*" capture="environment" onchange="cargarFoto(this,'d2')" style="display:none">
+          <button class="foto-del" id="del-d2" onclick="borrarFoto('d2')">✕ Quitar</button>
+        </div>
+      </div>
+      <p style="font-size:13px; color:#999; margin-top:16px; padding:12px; background:var(--cafe-light); border-radius:8px;">
+        💡 Las fotos <em>Después</em> del procedimiento se agregan en una visita posterior desde el expediente del paciente en Cloudinary.
+      </p>
+    </div>
+
+    <!-- 5. FIRMA -->
+    <div class="card">
+      <div class="card-title">
+        <div class="card-title-icon">✍️</div>
+        Firma del Paciente
+      </div>
+      <p style="font-size:15px; color:#666; margin-bottom:14px;">
+        Dibuja tu firma con el dedo o Apple Pencil:
+      </p>
+      <div class="firma-area" id="firma-area">
+        <div class="firma-hint" id="firma-hint">
+          <span class="firma-hint-icon">✍️</span>
+          Dibuja tu firma aquí
+        </div>
+        <canvas id="canvas-firma"></canvas>
+        <div class="firma-linea"></div>
+        <div class="firma-label-abajo">Firma</div>
+      </div>
+      <button class="btn-limpiar" onclick="firmaObj.limpiar()">✕ Borrar firma</button>
+    </div>
+
+    <button class="btn-main" onclick="validarYMostrarModal()">
+      ✓ ACEPTO Y FIRMO EL CONSENTIMIENTO
+    </button>
+
+  </div>
+</div>
+
+
+<!-- ════════ MODAL ════════ -->
+<div class="overlay" id="modal">
+  <div class="modal">
+    <span class="modal-emoji">📋</span>
+    <h3>¿Confirmas tu consentimiento?</h3>
+    <p>Al confirmar, tu firma quedará registrada en el sistema de la clínica Cass Beauty. El documento tiene validez legal.</p>
+    <div class="modal-btns">
+      <button class="modal-btn sec" onclick="cerrarModal()">Revisar</button>
+      <button class="modal-btn pri" onclick="confirmar()">✓ Confirmo</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ LOADING ════════ -->
+<div class="loading" id="loading">
+  <div class="spin"></div>
+  <div class="loading-txt" id="loading-txt">Generando documento…</div>
+</div>
+
+<!-- ════════ ÉXITO ════════ -->
+<div class="success" id="success">
+  <div class="success-hero">
+    <span class="success-emoji">✅</span>
+    <h2>¡Documento Guardado!</h2>
+    <p>El consentimiento de <strong>Dermapen</strong> fue firmado exitosamente.</p>
+  </div>
+  <div class="success-card">
+    <div class="success-info">
+      <div class="etiqueta">Paciente</div>
+      <div class="valor" id="s-nombre">—</div>
+      <div class="etiqueta">Folio</div>
+      <div class="folio-badge" id="s-folio">—</div>
+      <div id="s-url-wrap" style="display:none; margin-top:12px">
+        <div class="etiqueta" style="margin-top:0">Documento guardado</div>
+        <div class="doc-link" id="s-url">—</div>
+      </div>
+    </div>
+    <button class="btn-nuevo" onclick="location.reload()">+ Nuevo Consentimiento</button>
+  </div>
+</div>
+
+
+<!-- ════════ SCRIPTS ════════ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script>
+/* PILLS — zonas (multi) */
+document.querySelectorAll('#zonas .pill').forEach(p =>
+  p.addEventListener('click', () => p.classList.toggle('on'))
+);
+
+/* PILLS — profundidad (single) */
+document.querySelectorAll('#prof .pill').forEach(p =>
+  p.addEventListener('click', () => {
+    document.querySelectorAll('#prof .pill').forEach(x => x.classList.remove('on'));
+    p.classList.add('on');
+  })
+);
+
+/* CHECKBOXES */
+function toggleCheck(row) {
+  row.classList.toggle('on');
+  row.querySelector('.check-box').textContent = row.classList.contains('on') ? '✓' : '';
+}
+
+/* FECHA HOY */
+document.getElementById('fecha-proc').value = new Date().toISOString().split('T')[0];
+
+/* FIRMA */
+class Firma {
+  constructor(id) {
+    this.c = document.getElementById(id);
+    this.ctx = this.c.getContext('2d');
+    this.area = document.getElementById('firma-area');
+    this.hint = document.getElementById('firma-hint');
+    this.dibujando = false; this.pts = []; this.tiene = false;
+    this._setup(); this._bind();
+  }
+  _setup() {
+    const dpr = window.devicePixelRatio || 1;
+    const w = this.c.offsetWidth || this.c.parentElement.offsetWidth;
+    const h = 180;
+    this.c.width = w * dpr; this.c.height = h * dpr;
+    this.c.style.height = h + 'px';
+    this.ctx.scale(dpr, dpr);
+    this.ctx.strokeStyle = '#1c1c1e'; this.ctx.lineWidth = 2.5;
+    this.ctx.lineCap = 'round'; this.ctx.lineJoin = 'round';
+    this._dpr = dpr; this._w = w; this._h = h;
+  }
+  _pos(e) {
+    const r = this.c.getBoundingClientRect();
+    const s = e.touches ? e.touches[0] : e;
+    return { x: s.clientX - r.left, y: s.clientY - r.top };
+  }
+  _start(e) {
+    e.preventDefault(); this.dibujando = true;
+    this.pts = [this._pos(e)];
+    this.hint.classList.add('oculto');
+    this.area.classList.add('activo');
+  }
+  _move(e) {
+    if (!this.dibujando) return; e.preventDefault();
+    const p = this._pos(e); this.pts.push(p);
+    const ctx = this.ctx; const pts = this.pts;
+    const pr = e.pressure > 0 ? Math.max(1.2, e.pressure * 4) : 2.5;
+    ctx.lineWidth = pr;
+    if (pts.length < 3) { ctx.lineTo(p.x, p.y); ctx.stroke(); return; }
+    const n = pts.length;
+    const cx = (pts[n-3].x + pts[n-1].x) / 2;
+    const cy = (pts[n-3].y + pts[n-1].y) / 2;
+    ctx.beginPath(); ctx.moveTo(cx, cy);
+    ctx.quadraticCurveTo(pts[n-2].x, pts[n-2].y, (pts[n-2].x+pts[n-1].x)/2, (pts[n-2].y+pts[n-1].y)/2);
+    ctx.stroke();
+  }
+  _end() { this.dibujando = false; this.tiene = true; this.pts = []; }
+  _bind() {
+    this.c.addEventListener('pointerdown', e => this._start(e), {passive:false});
+    this.c.addEventListener('pointermove', e => this._move(e), {passive:false});
+    this.c.addEventListener('pointerup',   e => this._end(e));
+    this.c.addEventListener('touchstart',  e => this._start(e), {passive:false});
+    this.c.addEventListener('touchmove',   e => this._move(e), {passive:false});
+    this.c.addEventListener('touchend',    e => this._end(e));
+  }
+  limpiar() {
+    this.ctx.clearRect(0,0,this.c.width,this.c.height);
+    this.tiene = false; this.pts = [];
+    this.hint.classList.remove('oculto');
+    this.area.classList.remove('activo');
+  }
+  imagen() { return this.tiene ? this.c.toDataURL('image/png') : null; }
+  vacia() { return !this.tiene; }
+}
+
+const firmaObj = new Firma('canvas-firma');
+
+/* ── FOTOS ── */
+const fotos = { a1: null, a2: null, d1: null, d2: null };
+
+function cargarFoto(input, key) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    fotos[key] = e.target.result;
+    const prev = document.getElementById('prev-' + key);
+    prev.innerHTML = `<img src="${e.target.result}" alt="foto">`;
+    document.getElementById('del-' + key).style.display = 'block';
+  };
+  reader.readAsDataURL(file);
+}
+
+function borrarFoto(key) {
+  fotos[key] = null;
+  const icon = key.startsWith('d') ? '<span class="foto-placeholder-icon" style="opacity:0.4">📷</span>' : '<span class="foto-placeholder-icon">📷</span>';
+  document.getElementById('prev-' + key).innerHTML = icon;
+  document.getElementById('del-' + key).style.display = 'none';
+  document.getElementById('inp-' + key).value = '';
+}
+
+/* VALIDACIÓN */
+function validarYMostrarModal() {
+  const nombre = document.getElementById('nombre').value.trim();
+  const fechaNac = document.getElementById('fecha-nac').value;
+  const zonas = [...document.querySelectorAll('#zonas .pill.on')];
+  const prof = document.querySelector('#prof .pill.on');
+  const todosChecks = [...document.querySelectorAll('.check-row')].every(c => c.classList.contains('on'));
+
+  if (!nombre) return alert('Por favor ingresa el nombre completo.');
+  if (!fechaNac) return alert('Por favor ingresa la fecha de nacimiento.');
+  if (zonas.length === 0) return alert('Selecciona al menos una zona de tratamiento.');
+  if (!prof) return alert('Selecciona la profundidad de agujas.');
+  if (!todosChecks) return alert('Confirma TODAS las contraindicaciones antes de continuar.');
+  if (firmaObj.vacia()) return alert('Por favor dibuja tu firma.');
+
+  document.getElementById('modal').classList.add('show');
+}
+
+function cerrarModal() { document.getElementById('modal').classList.remove('show'); }
+
+function folio() {
+  const d = new Date().toISOString().slice(0,10).replace(/-/g,'');
+  return 'CB-DP-' + d + '-' + Math.random().toString(36).slice(2,6).toUpperCase();
+}
+
+async function confirmar() {
+  cerrarModal();
+  const loadEl = document.getElementById('loading');
+  loadEl.classList.add('show');
+  document.getElementById('loading-txt').textContent = 'Generando PDF…';
+
+  try {
+    const id = folio();
+    const nombre = document.getElementById('nombre').value.trim();
+    const fechaNac = document.getElementById('fecha-nac').value;
+    const terapeuta = document.getElementById('terapeuta').value.trim();
+    const sesion = document.getElementById('sesion').value.trim();
+    const serum = document.getElementById('serum').value.trim();
+    const zonas = [...document.querySelectorAll('#zonas .pill.on')].map(p => p.dataset.v).join(', ');
+    const prof = document.querySelector('#prof .pill.on')?.dataset.v || '—';
+    const nacimiento = new Date(fechaNac); const hoy = new Date();
+    const edad = hoy.getFullYear() - nacimiento.getFullYear() -
+      (hoy < new Date(hoy.getFullYear(), nacimiento.getMonth(), nacimiento.getDate()) ? 1 : 0);
+    const firmaImg = firmaObj.imagen();
+    const checks = [...document.querySelectorAll('.check-row .check-text')].map(el => el.textContent);
+
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ unit:'mm', format:'letter' });
+    const PW = doc.internal.pageSize.getWidth();
+    const PH = doc.internal.pageSize.getHeight();
+    const M = 15; const W = PW - M*2;
+
+    const addHeader = () => {
+      doc.setFillColor(160, 100, 50);
+      doc.rect(0,0,PW,36,'F');
+      doc.setTextColor(255,255,255);
+      doc.setFontSize(9); doc.setFont('helvetica','normal');
+      doc.text('CASS BEAUTY · CLÍNICA ESTÉTICA', PW/2, 13, {align:'center'});
+      doc.setFontSize(17); doc.setFont('helvetica','bold');
+      doc.text('CONSENTIMIENTO INFORMADO — DERMAPEN', PW/2, 25, {align:'center'});
+      doc.setFontSize(9); doc.setFont('helvetica','normal');
+      doc.text(`Folio: ${id}  ·  ${new Date().toLocaleString('es-MX')}`, PW/2, 32, {align:'center'});
+    };
+
+    const addFooter = (pg, total) => {
+      doc.setFillColor(248,248,248); doc.rect(0,PH-15,PW,15,'F');
+      doc.setFontSize(7.5); doc.setTextColor(140,140,140); doc.setFont('helvetica','normal');
+      doc.text(`Cass Beauty · Documento digital · ${new Date().toLocaleDateString('es-MX')}`, PW/2, PH-5, {align:'center'});
+      doc.text(`Pág. ${pg} / ${total}`, PW-M, PH-5, {align:'right'});
+    };
+
+    const seccTit = (txt, y) => {
+      doc.setFillColor(160,100,50); doc.rect(M,y,3,6,'F');
+      doc.setFontSize(10); doc.setFont('helvetica','bold'); doc.setTextColor(160,100,50);
+      doc.text(txt.toUpperCase(), M+6, y+5);
+      return y+13;
+    };
+
+    let y = 0;
+    addHeader(); y = 46;
+
+    y = seccTit('1. Datos del Paciente', y);
+    const filas = [
+      ['Nombre completo', nombre],
+      ['Fecha de nacimiento', new Date(fechaNac).toLocaleDateString('es-MX')],
+      ['Edad', edad + ' años'],
+      ['Terapeuta', terapeuta || '—'],
+      ['Zona(s) tratadas', zonas || '—'],
+      ['Profundidad', prof],
+      ['Sesión', sesion || '1ª sesión'],
+      ['Sérum aplicado', serum || '—'],
+    ];
+    filas.forEach(([lbl, val]) => {
+      doc.setFontSize(7.5); doc.setFont('helvetica','bold'); doc.setTextColor(120,120,120);
+      doc.text(lbl.toUpperCase(), M, y);
+      doc.setFontSize(11); doc.setFont('helvetica','normal'); doc.setTextColor(28,28,30);
+      const ls = doc.splitTextToSize(val, W);
+      doc.text(ls, M, y+6);
+      doc.setDrawColor(230,230,230); doc.setLineWidth(0.3);
+      doc.line(M, y+7+ls.length*5, M+W, y+7+ls.length*5);
+      y += 7 + ls.length*5 + 5;
+    });
+
+    if (y > PH-70) { addFooter(1,'?'); doc.addPage(); addHeader(); y=46; }
+    y += 4;
+    y = seccTit('2. Información Médica', y);
+    const textos = [
+      ['¿Qué es el Dermapen?','Microagujamiento que crea microcanales controlados estimulando colágeno y elastina. Mínimamente invasivo. 4-6 sesiones con 3-4 semanas de intervalo.'],
+      ['Efectos adversos posibles','• Enrojecimiento 24-72h · Descamación leve 3-5to día · Sensibilidad al sol · Hiperpigmentación sin SPF · Posible reactivación de herpes'],
+      ['Cuidados post-tratamiento','• Sin maquillaje 24h · SPF50+ por 30 días · Sin sol directo 48h · Sin exfoliantes 5 días · Hidratación intensa · Sin sauna/vapor 48h'],
+    ];
+    textos.forEach(([titulo, cuerpo]) => {
+      doc.setFontSize(9.5); doc.setFont('helvetica','bold'); doc.setTextColor(28,28,30);
+      doc.text(titulo, M, y); y += 6;
+      doc.setFont('helvetica','normal'); doc.setTextColor(68,68,68);
+      const ls = doc.splitTextToSize(cuerpo, W);
+      doc.text(ls, M, y); y += ls.length*5.5+6;
+    });
+
+    if (y > PH-80) { addFooter(doc.internal.getNumberOfPages(),'?'); doc.addPage(); addHeader(); y=46; }
+    y += 4;
+    y = seccTit('3. Declaración de Contraindicaciones', y);
+    doc.setFontSize(9); doc.setFont('helvetica','normal'); doc.setTextColor(28,28,30);
+    doc.text('El/La paciente confirma NO presentar ninguna de las siguientes contraindicaciones:', M, y); y += 8;
+    checks.forEach(txt => {
+      if (y > PH-30) { addFooter(doc.internal.getNumberOfPages(),'?'); doc.addPage(); addHeader(); y=46; }
+      doc.setFillColor(46,140,92); doc.roundedRect(M, y-4, 4.5, 4.5, 1, 1, 'F');
+      doc.setFontSize(7); doc.setTextColor(255,255,255); doc.text('✓', M+0.8, y-0.3);
+      doc.setFontSize(9); doc.setTextColor(28,28,30); doc.setFont('helvetica','normal');
+      const ls = doc.splitTextToSize(txt, W-8);
+      doc.text(ls, M+7, y); y += ls.length*5+4;
+    });
+
+    if (y > PH-90) { addFooter(doc.internal.getNumberOfPages(),'?'); doc.addPage(); addHeader(); y=46; }
+    y += 6;
+    y = seccTit('4. Firma del Paciente', y);
+    const declaro = `Yo, ${nombre}, declaro haber leído y comprendido este consentimiento informado para el procedimiento de Dermapen (microneedling) y acepto voluntariamente realizarlo en Cass Beauty.`;
+    doc.setFontSize(9); doc.setFont('helvetica','normal'); doc.setTextColor(28,28,30);
+    const dlLs = doc.splitTextToSize(declaro, W);
+    doc.text(dlLs, M, y); y += dlLs.length*5.5+10;
+
+    if (firmaImg) doc.addImage(firmaImg, 'PNG', M, y, W*0.55, 32);
+    doc.setDrawColor(28,28,30); doc.setLineWidth(0.5);
+    doc.line(M, y+35, M+W*0.55, y+35);
+    doc.setFontSize(8); doc.setTextColor(120,120,120);
+    doc.text('Firma del paciente', M, y+41);
+    doc.setFont('helvetica','bold'); doc.setFontSize(9); doc.setTextColor(28,28,30);
+    doc.text(nombre, M, y+47);
+    doc.setFont('helvetica','normal'); doc.setFontSize(8); doc.setTextColor(120,120,120);
+    doc.text(new Date().toLocaleDateString('es-MX',{weekday:'long',year:'numeric',month:'long',day:'numeric'}), PW-M, y+41, {align:'right'});
+
+    /* fotos */
+    const fotosArr = [
+      ['a1','Antes 1'],['a2','Antes 2'],['d1','Después 1'],['d2','Después 2']
+    ].filter(([k]) => fotos[k]);
+
+    if (fotosArr.length > 0) {
+      addFooter(doc.internal.getNumberOfPages(), '?');
+      doc.addPage();
+      addHeader();
+      y = 46;
+      y = seccTit('Registro Fotográfico del Paciente', y);
+      const fw = (W - 12) / 2;
+      const fh = fw * 0.75;
+      let col = 0;
+      for (const [key, label] of fotosArr) {
+        const fx = M + col * (fw + 12);
+        try { doc.addImage(fotos[key],'JPEG', fx, y, fw, fh, undefined,'MEDIUM'); }
+        catch(e) { try { doc.addImage(fotos[key],'PNG', fx, y, fw, fh, undefined,'MEDIUM'); } catch(e2){} }
+        doc.setFillColor(240,240,240); doc.roundedRect(fx, y+fh+1, fw, 7, 2,2,'F');
+        doc.setFontSize(7.5); doc.setTextColor(80,80,80); doc.setFont('helvetica','bold');
+        doc.text(label.toUpperCase(), fx+fw/2, y+fh+6, {align:'center'});
+        col++;
+        if (col >= 2) { col = 0; y += fh + 16; }
+      }
+    }
+
+    /* numerar páginas */
+    const total = doc.internal.getNumberOfPages();
+    for (let i=1; i<=total; i++) { doc.setPage(i); addFooter(i, total); }
+
+    document.getElementById('loading-txt').textContent = 'Guardando en la nube…';
+    const blob = doc.output('blob');
+    const archivo = (nombre.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]/g,'-').slice(0,30))+'-'+id;
+    const mes = new Date().toISOString().slice(0,7);
+    let urlDoc = null;
+
+    try {
+      const fd = new FormData();
+      fd.append('file', blob, archivo+'.pdf');
+      fd.append('upload_preset', 'cass_beauty_consent');
+      fd.append('folder', `cass-beauty/consentimientos/dermapen/${mes}`);
+      fd.append('resource_type', 'raw');
+      fd.append('public_id', archivo);
+
+      const res = await fetch(`https://api.cloudinary.com/v1_1/dxohyqmji/raw/upload`, {method:'POST',body:fd});
+      if (res.ok) { const data = await res.json(); urlDoc = data.secure_url; }
+    } catch(e) {
+      doc.save(archivo+'.pdf');
+    }
+
+    /* subir fotos */
+    const fotoLabels = {a1:'antes-1', a2:'antes-2', d1:'despues-1', d2:'despues-2'};
+    for (const [key, label] of Object.entries(fotoLabels)) {
+      if (!fotos[key]) continue;
+      try {
+        document.getElementById('loading-txt').textContent = `Guardando foto ${label}…`;
+        const arr = fotos[key].split(',');
+        const mime = arr[0].match(/:(.*?);/)[1];
+        const bstr = atob(arr[1]);
+        let n = bstr.length; const u8 = new Uint8Array(n);
+        while(n--) u8[n] = bstr.charCodeAt(n);
+        const fBlob = new Blob([u8], {type: mime});
+        const ffd = new FormData();
+        ffd.append('file', fBlob, `${archivo}-${label}.jpg`);
+        ffd.append('upload_preset', 'cass_beauty_consent');
+        ffd.append('folder', `cass-beauty/pacientes/${archivo}/dermapen`);
+        ffd.append('public_id', `${archivo}-${label}`);
+        await fetch('https://api.cloudinary.com/v1_1/dxohyqmji/image/upload', {method:'POST',body:ffd});
+      } catch(e) { /* foto upload fail silently */ }
+    }
+
+    loadEl.classList.remove('show');
+    document.getElementById('form-wrap').style.display = 'none';
+    document.getElementById('s-nombre').textContent = nombre;
+    document.getElementById('s-folio').textContent = id;
+    if (urlDoc) {
+      document.getElementById('s-url-wrap').style.display = 'block';
+      document.getElementById('s-url').textContent = urlDoc;
+    }
+    document.getElementById('success').classList.add('show');
+
+  } catch(err) {
+    document.getElementById('loading').classList.remove('show');
+    alert('Error: ' + err.message);
+    console.error(err);
+  }
+}
+</script>
+</body>
+</html>

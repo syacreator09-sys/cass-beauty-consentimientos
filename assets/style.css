@@ -1,0 +1,536 @@
+/* =============================================
+   CASS BEAUTY — Consentimientos Informados
+   Optimizado para iPad (Safari, touch, Pencil)
+   ============================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --rosa:     #c9637a;
+  --rosa-dark:#a84d62;
+  --rosa-light:#f7e8ec;
+  --gris:     #6b6b6b;
+  --gris-claro:#f4f4f4;
+  --negro:    #1a1a1a;
+  --verde:    #2e7d52;
+  --verde-light:#e8f5ee;
+  --rojo:     #c0392b;
+  --borde:    #d9d9d9;
+  --radio:    12px;
+  --sombra:   0 2px 12px rgba(0,0,0,0.08);
+}
+
+html, body {
+  font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--negro);
+  background: #fafafa;
+  -webkit-text-size-adjust: 100%;
+  touch-action: manipulation;
+}
+
+/* ── HEADER ─────────────────────────────── */
+.header {
+  background: linear-gradient(135deg, var(--rosa) 0%, var(--rosa-dark) 100%);
+  color: white;
+  text-align: center;
+  padding: 28px 20px 24px;
+  border-bottom: 3px solid var(--rosa-dark);
+}
+
+.header .clinica-nombre {
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-bottom: 6px;
+}
+
+.header h1 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.header .subtitulo {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* ── CONTENEDOR PRINCIPAL ───────────────── */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+}
+
+/* ── SECCIONES ──────────────────────────── */
+.seccion {
+  background: white;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 24px 20px;
+  margin-bottom: 20px;
+  border: 1px solid var(--borde);
+}
+
+.seccion-titulo {
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--rosa);
+  border-bottom: 2px solid var(--rosa-light);
+  padding-bottom: 10px;
+  margin-bottom: 18px;
+}
+
+/* ── CAMPOS DE FORMULARIO ───────────────── */
+.campo-grupo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.campo-grupo.full {
+  grid-template-columns: 1fr;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gris);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  padding: 14px 16px;
+  border: 2px solid var(--borde);
+  border-radius: 10px;
+  font-size: 18px;
+  font-family: inherit;
+  color: var(--negro);
+  background: white;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  outline: none;
+  border-color: var(--rosa);
+  box-shadow: 0 0 0 3px rgba(201, 99, 122, 0.15);
+}
+
+/* ── CHECKBOXES (estilo Apple HIG 44×44px) ── */
+.checkbox-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 10px 0;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 12px 16px;
+  background: var(--gris-claro);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-height: 56px;
+}
+
+.checkbox-item:active {
+  background: var(--rosa-light);
+  border-color: var(--rosa);
+}
+
+.checkbox-item input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-custom {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border: 2px solid var(--borde);
+  border-radius: 7px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  transition: all 0.2s;
+  font-size: 18px;
+}
+
+.checkbox-item.checked .checkbox-custom {
+  background: var(--verde);
+  border-color: var(--verde);
+  color: white;
+}
+
+.checkbox-item.checked {
+  background: var(--verde-light);
+  border-color: var(--verde);
+}
+
+.checkbox-label {
+  font-size: 17px;
+  line-height: 1.5;
+  flex: 1;
+}
+
+/* ── OPCIONES MÚLTIPLES (pills) ─────────── */
+.pills-grupo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.pill {
+  padding: 10px 18px;
+  border: 2px solid var(--borde);
+  border-radius: 100px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: white;
+  color: var(--negro);
+  user-select: none;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.pill.activa {
+  background: var(--rosa);
+  border-color: var(--rosa);
+  color: white;
+  font-weight: 600;
+}
+
+/* ── TEXTO LEGAL ────────────────────────── */
+.texto-legal {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #444;
+}
+
+.texto-legal h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--negro);
+  margin: 16px 0 8px;
+}
+
+.texto-legal p {
+  margin-bottom: 10px;
+}
+
+.texto-legal ul {
+  margin: 8px 0 12px 20px;
+}
+
+.texto-legal ul li {
+  margin-bottom: 6px;
+}
+
+.alerta {
+  background: #fff3cd;
+  border: 1.5px solid #ffc107;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 15px;
+  margin: 12px 0;
+}
+
+/* ── CANVAS FIRMA ───────────────────────── */
+.firma-wrapper {
+  position: relative;
+  border: 3px dashed var(--borde);
+  border-radius: var(--radio);
+  background: #fafafa;
+  margin: 10px 0;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.firma-wrapper.activo {
+  border-color: var(--rosa);
+  border-style: solid;
+}
+
+.firma-label-float {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--borde);
+  font-size: 16px;
+  pointer-events: none;
+  text-align: center;
+  transition: opacity 0.3s;
+  z-index: 1;
+}
+
+.firma-label-float.hidden {
+  opacity: 0;
+}
+
+#canvas-firma, #canvas-firma-dermapen {
+  display: block;
+  width: 100%;
+  height: 200px;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.firma-linea-guia {
+  position: absolute;
+  bottom: 50px;
+  left: 5%;
+  right: 5%;
+  height: 1px;
+  background: var(--borde);
+  pointer-events: none;
+}
+
+.btn-borrar-firma {
+  display: block;
+  margin: 8px auto 0;
+  padding: 8px 20px;
+  background: none;
+  border: 1.5px solid var(--borde);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--gris);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-borrar-firma:active {
+  background: var(--gris-claro);
+}
+
+/* ── BOTONES ────────────────────────────── */
+.btn-aceptar {
+  display: block;
+  width: 100%;
+  padding: 22px;
+  background: linear-gradient(135deg, var(--verde) 0%, #1e5e3a 100%);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 24px;
+  transition: all 0.2s;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 20px rgba(46, 125, 82, 0.4);
+}
+
+.btn-aceptar:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 10px rgba(46, 125, 82, 0.3);
+}
+
+.btn-aceptar:disabled {
+  background: #b0b0b0;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* ── MODAL CONFIRMACIÓN ─────────────────── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-overlay.visible {
+  display: flex;
+}
+
+.modal {
+  background: white;
+  border-radius: 20px;
+  padding: 30px 24px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.modal-icono {
+  font-size: 56px;
+  margin-bottom: 16px;
+}
+
+.modal h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.modal p {
+  font-size: 16px;
+  color: var(--gris);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.modal-botones {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-modal {
+  flex: 1;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.btn-modal.cancelar {
+  background: var(--gris-claro);
+  color: var(--negro);
+}
+
+.btn-modal.confirmar {
+  background: var(--verde);
+  color: white;
+}
+
+/* ── PANTALLA ÉXITO ─────────────────────── */
+.pantalla-exito {
+  display: none;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.pantalla-exito.visible {
+  display: block;
+}
+
+.pantalla-exito .icono-grande {
+  font-size: 80px;
+  margin-bottom: 20px;
+}
+
+.pantalla-exito h2 {
+  font-size: 28px;
+  color: var(--verde);
+  margin-bottom: 12px;
+}
+
+.pantalla-exito p {
+  font-size: 17px;
+  color: var(--gris);
+  margin-bottom: 8px;
+}
+
+.doc-url {
+  word-break: break-all;
+  font-size: 13px;
+  color: var(--rosa);
+  margin-top: 16px;
+  padding: 10px;
+  background: var(--rosa-light);
+  border-radius: 8px;
+}
+
+.btn-nuevo {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 16px 32px;
+  background: var(--rosa);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ── LOADING ────────────────────────────── */
+.loading-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(255,255,255,0.9);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.loading-overlay.visible {
+  display: flex;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid var(--rosa-light);
+  border-top-color: var(--rosa);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-texto {
+  font-size: 18px;
+  color: var(--gris);
+  font-weight: 500;
+}
+
+/* ── RESPONSIVE ─────────────────────────── */
+@media (max-width: 600px) {
+  .campo-grupo {
+    grid-template-columns: 1fr;
+  }
+
+  html, body {
+    font-size: 16px;
+  }
+
+  .header h1 {
+    font-size: 22px;
+  }
+}

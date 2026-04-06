@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Cass Beauty — Consentimientos</title>
+  <style>
+    :root { color-scheme: light only; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+      background: #fdf0f3;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    .hero {
+      background: linear-gradient(145deg, #c9637a 0%, #a8435c 50%, #8c3149 100%);
+      width: 100%;
+      max-width: 480px;
+      border-radius: 24px;
+      padding: 40px 28px 36px;
+      text-align: center;
+      margin-bottom: 28px;
+      box-shadow: 0 12px 40px rgba(140,50,73,0.25);
+    }
+
+    .logo-svg { margin-bottom: 10px; display: block; }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.9);
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 10px;
+      font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .hero-sub {
+      color: rgba(255,255,255,0.75);
+      font-size: 14px;
+    }
+
+    .cards {
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .card-link {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      background: white;
+      border-radius: 18px;
+      padding: 22px 20px;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      border: 1.5px solid #f0e0e4;
+      transition: transform 0.15s, box-shadow 0.15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .card-link:active { transform: scale(0.98); box-shadow: 0 1px 6px rgba(0,0,0,0.1); }
+
+    .card-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      flex-shrink: 0;
+    }
+
+    .icon-botox { background: #fdf0f3; }
+    .icon-dermapen { background: #fdf5ee; }
+
+    .card-info { flex: 1; }
+
+    .card-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1c1c1e;
+      margin-bottom: 3px;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: #888;
+      line-height: 1.4;
+    }
+
+    .card-arrow {
+      font-size: 20px;
+      color: #ccc;
+    }
+
+    .footer {
+      margin-top: 28px;
+      font-size: 12px;
+      color: #bbb;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="logo-svg">
+      <svg width="140" height="52" viewBox="0 0 140 52" xmlns="http://www.w3.org/2000/svg">
+        <text x="70" y="24" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="22" font-weight="700" letter-spacing="6" fill="white">CASS</text>
+        <line x1="20" y1="30" x2="120" y2="30" stroke="rgba(255,255,255,0.4)" stroke-width="0.5"/>
+        <text x="70" y="42" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" font-weight="300" letter-spacing="7" fill="rgba(255,255,255,0.85)">BEAUTY</text>
+      </svg>
+    </div>
+    <div class="hero-badge">Clínica Estética</div>
+    <div class="hero-sub">Selecciona el consentimiento a firmar</div>
+  </div>
+
+  <div class="cards">
+    <a class="card-link" href="botox.html">
+      <div class="card-icon icon-botox">💉</div>
+      <div class="card-info">
+        <div class="card-name">Botox</div>
+        <div class="card-desc">Toxina botulínica · Líneas de expresión</div>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+
+    <a class="card-link" href="dermapen.html">
+      <div class="card-icon icon-dermapen">✨</div>
+      <div class="card-info">
+        <div class="card-name">Dermapen</div>
+        <div class="card-desc">Microneedling · Renovación celular</div>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+  </div>
+
+  <div class="footer">Cass Beauty · Documentos digitales seguros</div>
+
+</body>
+</html>
